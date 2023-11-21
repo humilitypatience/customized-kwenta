@@ -3,7 +3,7 @@ import { FC, memo } from 'react'
 
 import Connector from 'containers/Connector'
 import useIsL2 from 'hooks/useIsL2'
-import ConnectWalletCard from 'sections/exchange/FooterCard/ConnectWalletCard'
+// import ConnectWalletCard from 'sections/exchange/FooterCard/ConnectWalletCard'
 import MarketClosureCard from 'sections/exchange/FooterCard/MarketClosureCard'
 import TradeSummaryCard from 'sections/exchange/FooterCard/TradeSummaryCard'
 import { useAppSelector } from 'state/hooks'
@@ -32,7 +32,8 @@ const FooterCard: FC = memo(() => {
 	return (
 		<>
 			{!isWalletConnected ? (
-				<ConnectWalletCard />
+				// <ConnectWalletCard />
+				<></>
 			) : baseMarketClosed || quoteMarketClosed ? (
 				<MarketClosureCard />
 			) : !isL2 && numEntries >= 12 ? (

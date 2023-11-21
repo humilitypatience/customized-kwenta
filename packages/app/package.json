@@ -16,6 +16,7 @@
 		"preinstall": "pnpm --filter \"@kwenta/sdk\" build"
 	},
 	"dependencies": {
+		"@clerk/nextjs": "^4.27.1",
 		"@eth-optimism/contracts": "0.5.37",
 		"@ethersproject/bignumber": "^5.7.0",
 		"@ethersproject/providers": "^5.7.2",

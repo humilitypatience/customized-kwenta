@@ -1,3 +1,4 @@
+import { ClerkProvider } from '@clerk/nextjs'
 import { FC, memo } from 'react'
 import styled from 'styled-components'
 
@@ -17,23 +18,25 @@ type AppLayoutProps = {
 
 const AppLayout: FC<AppLayoutProps> = memo(({ children }) => {
 	return (
-		<AppLayoutContainer>
-			<DesktopOnlyView>
-				<DesktopGridContainer>
-					<Header />
-					<main>{children}</main>
-					<Footer />
-				</DesktopGridContainer>
-			</DesktopOnlyView>
-			<MobileOrTabletView>
-				<MobileScreenContainer>
-					<Banner />
-					{children}
-					<MobileUserMenu />
-				</MobileScreenContainer>
-			</MobileOrTabletView>
-			<NotificationContainer />
-		</AppLayoutContainer>
+		<ClerkProvider>
+			<AppLayoutContainer>
+				<DesktopOnlyView>
+					<DesktopGridContainer>
+						<Header />
+						<main>{children}</main>
+						<Footer />
+					</DesktopGridContainer>
+				</DesktopOnlyView>
+				<MobileOrTabletView>
+					<MobileScreenContainer>
+						<Banner />
+						{children}
+						<MobileUserMenu />
+					</MobileScreenContainer>
+				</MobileOrTabletView>
+				<NotificationContainer />
+			</AppLayoutContainer>
+		</ClerkProvider>
 	)
 })
 

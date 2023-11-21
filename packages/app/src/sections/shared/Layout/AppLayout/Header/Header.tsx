@@ -1,3 +1,4 @@
+import { SignInButton, SignOutButton, SignUpButton, useClerk } from '@clerk/nextjs'
 import { FC } from 'react'
 import styled from 'styled-components'
 
@@ -11,6 +12,7 @@ import Nav from './Nav'
 import WalletButtons from './WalletButtons'
 
 const Header: FC = () => {
+	const { user } = useClerk()
 	return (
 		<MobileHiddenView>
 			<FlexDivCol>
@@ -19,7 +21,15 @@ const Header: FC = () => {
 						<Logo />
 						<Nav />
 					</LogoNav>
-					<WalletButtons />
+					{/* <WalletButtons /> */}
+					{user ? (
+						<SignOutButton />
+					) : (
+						<div>
+							<SignInButton />
+							<SignUpButton />
+						</div>
+					)}
 				</Container>
 				<Banner />
 			</FlexDivCol>
