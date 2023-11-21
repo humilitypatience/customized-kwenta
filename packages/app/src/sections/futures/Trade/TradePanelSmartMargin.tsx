@@ -101,7 +101,7 @@ const TradePanelSmartMargin: FC<Props> = memo(({ mobile, closeDrawer }) => {
 								<OrderSizing />
 								<LeverageInput />
 								<SLTPInputs />
-								<ManagePosition />
+								{/* <ManagePosition /> */}
 								<SmartMarginTradePanelPreview />
 							</>
 						)}

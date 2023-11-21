@@ -81,7 +81,7 @@ const TradeBalance = memo(() => {
 			<BalanceContainer>
 				{!isWalletConnected ? (
 					<DepositContainer>
-						<FlexDivCol>
+						{/* <FlexDivCol>
 							<Body size="medium" color="secondary">
 								{t('futures.market.trade.trade-balance.no-wallet-connected')}
 							</Body>
@@ -91,7 +91,7 @@ const TradeBalance = memo(() => {
 						</FlexDivCol>
 						<Button variant="yellow" size="xsmall" textTransform="none" onClick={openConnectModal}>
 							{t('futures.market.trade.trade-balance.connect-wallet-button')}
-						</Button>
+						</Button> */}
 					</DepositContainer>
 				) : !smartMarginAccount ? (
 					<DepositContainer>
