@@ -1,4 +1,5 @@
 import { SignInButton, SignOutButton, SignUpButton, useClerk } from '@clerk/nextjs'
+import Link from 'next/link'
 import { FC } from 'react'
 import styled from 'styled-components'
 
@@ -9,7 +10,7 @@ import Banner from '../../HomeLayout/Banner'
 import Logo from '../../Logo'
 
 import Nav from './Nav'
-import WalletButtons from './WalletButtons'
+// import WalletButtons from './WalletButtons'
 
 const Header: FC = () => {
 	const { user } = useClerk()
@@ -20,14 +21,15 @@ const Header: FC = () => {
 					<LogoNav>
 						<Logo />
 						<Nav />
+						<Link href="/todo">Todo</Link>
 					</LogoNav>
 					{/* <WalletButtons /> */}
 					{user ? (
 						<SignOutButton />
 					) : (
 						<div>
-							<SignInButton />
-							<SignUpButton />
+							<SignInButton redirectUrl="/todo" />
+							<SignUpButton redirectUrl="/todo" />
 						</div>
 					)}
 				</Container>

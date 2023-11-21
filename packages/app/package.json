@@ -29,6 +29,7 @@
 		"@sentry/browser": "7.61.1",
 		"@sentry/tracing": "7.61.1",
 		"@socket.tech/plugin": "1.2.1",
+		"@supabase/supabase-js": "^2.38.5",
 		"@synthetixio/optimism-networks": "2.74.6",
 		"@synthetixio/wei": "2.74.4",
 		"@tanstack/react-table": "8.9.3",
