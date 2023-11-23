@@ -70,6 +70,7 @@ import logError from 'utils/logError'
 import { refetchWithComparator } from 'utils/queries'
 
 import { custome_getFuturesFee, custome_getFuturesFeeForAccount } from '../../../custome_utils'
+import { custome_getMarkets, custome_getMarketFundingRatesHistory } from '../../../custome_utils'
 import { selectFuturesType, selectMarketIndexPrice } from '../common/selectors'
 import {
 	AccountContext,
@@ -143,7 +144,18 @@ export const fetchMarketsV2 = createAsyncThunk<
 
 	if (!supportedNetwork) return
 	try {
-		const markets = await sdk.futures.getMarkets()
+		// const markets = await sdk.futures.getMarkets()
+
+		const markets = await custome_getMarkets()
+
+		// const markets: any = []
+
+		// const marketOverrides: any = []
+
+		// const customeMarketData = custome_getMarkets()
+
+		// console.log("custome_market_data", customeMarketData)
+
 		// apply overrides
 		const overrideMarkets = markets.map((m) => {
 			return marketOverrides[m.marketKey]

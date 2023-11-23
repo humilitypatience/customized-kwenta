@@ -15,6 +15,7 @@ export const fetchOptimismMarkets = createAsyncThunk<
 >('home/fetchOptimismMarkets', async (mainnetL2Provider, { extra: { sdk } }) => {
 	// For the home page we always fetch OP mainnet markets
 	const markets = await sdk.futures.getMarkets({ provider: mainnetL2Provider, networkId: 10 })
+	// const markets: any = ["Hello"]
 	const serializedMarkets = serializeV2Markets(markets)
 	return { markets: serializedMarkets }
 })
