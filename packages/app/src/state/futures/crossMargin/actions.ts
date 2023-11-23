@@ -87,7 +87,9 @@ export const fetchV3Markets = createAsyncThunk<
 	const networkId = selectNetwork(getState())
 	if (!supportedNetwork || !CROSS_MARGIN_ENABLED) return
 	try {
-		const v3Markets = await sdk.perpsV3.getMarkets()
+		// const v3Markets = await sdk.perpsV3.getMarkets()
+
+		const v3Markets: any = []
 
 		return { markets: v3Markets.map(serializeV3Market), networkId }
 	} catch (err) {

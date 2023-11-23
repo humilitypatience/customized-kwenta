@@ -7,6 +7,7 @@ import {
 	FuturesMarginType,
 } from '@kwenta/sdk/types'
 import { createAsyncThunk } from '@reduxjs/toolkit'
+import { custome_getMarketFundingRatesHistory } from 'custome_utils'
 
 import { notifyError } from 'components/ErrorNotifier'
 import { monitorAndAwaitTransaction } from 'state/app/helpers'
@@ -160,9 +161,10 @@ export const fetchFundingRatesHistory = createAsyncThunk<
 	{ marketAsset: FuturesMarketAsset; period: Period },
 	ThunkConfig
 >('futures/fetchFundingRatesHistory', async ({ marketAsset, period }, { extra: { sdk } }) => {
-	const rates = await sdk.futures.getMarketFundingRatesHistory(
-		marketAsset,
-		PERIOD_IN_SECONDS[period]
-	)
+	// const rates = await sdk.futures.getMarketFundingRatesHistory(
+	// 	marketAsset,
+	// 	PERIOD_IN_SECONDS[period]
+	// )
+	const rates = await custome_getMarketFundingRatesHistory()
 	return { marketAsset, rates }
 })
