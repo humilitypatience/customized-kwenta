@@ -7,6 +7,8 @@ import { AppThunk } from 'state/store'
 import { ThunkConfig } from 'state/types'
 import { getPricesInfo } from 'utils/prices'
 
+import { custome_getPreviousDayPrices } from '../../custome_utils'
+
 import { setOffChainPrices, setOnChainPrices } from './reducer'
 
 export const updatePrices =
@@ -29,10 +31,12 @@ export const fetchPreviousDayPrices = createAsyncThunk<
 		const prices = selectPrices(getState())
 		const marketAssets = Object.keys(prices)
 
-		const laggedPrices = await sdk.prices.getPreviousDayPrices(
-			marketAssets,
-			mainnet ? 10 : undefined
-		)
+		// const laggedPrices = await sdk.prices.getPreviousDayPrices(
+		// 	marketAssets,
+		// 	mainnet ? 10 : undefined
+		// )
+
+		const laggedPrices = await custome_getPreviousDayPrices()
 
 		return laggedPrices
 	} catch (err) {

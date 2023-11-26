@@ -25,7 +25,7 @@ export const custome_getFuturesAggregateStats = (url: string, options: object, a
 }
 
 export const custome_getFuturesFee = () => {
-	return {}
+	return 1000000
 }
 
 export const custome_getFuturesFeeForAccount = () => {
@@ -99,4 +99,16 @@ export const custome_getMarketFundingRatesHistory = async () => {
 			return []
 		})
 	return fundingData
+}
+
+export const custome_getPreviousDayPrices = async () => {
+	const pricesData = await axios
+		.get('/prices')
+		.then((res) => {
+			return res.data
+		})
+		.catch((error) => {
+			return []
+		})
+	return pricesData
 }
